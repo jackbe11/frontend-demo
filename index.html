@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Demo App</title>
+  </head>
+  <body>
+    <main>
+      <h1>User Expenses App</h1>
+      <button id="userbutton" type="button" onclick="changePage('users')">User Management</button>
+      <button id="expensebutton" type="button" onclick="changePage('expenses')">Expense Management</button>
+      <button id="viewbutton" type="button" onclick="changePage('cost')">Cost Breakdown</button>
+        <div id="userpage">
+          <h2>User Management</h2>
+            <span class="query">
+              <label for="fname">First Name:</label>
+                <style>
+                    .required:after {
+                        content:" *";
+                        color: #e32;
+                    }
+                </style>
+              <input type="text" id="fname" name="fname" placeholder="First Name"><br><br>
+            </span>
+            <span class="query">
+                <label for="lname">Last Name:</label>
+                <input type="text" id="lname" name="lname" placeholder="Last Name"><br><br>
+            </span>
+            <button id="submit" type="button" onclick="newUser()">Add User</button>
+            <h2>Users</h2>
+            <table id="usertable">
+              <thead>
+              <tr>
+                <th>User ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Total Expenses</th>
+              </tr>
+            </thead>
+            <tbody id="userBody">
+            </tbody>
+          </table>
+        </div>
+        <div id="expensespage" style="display: none">
+          <h2>Expense Management</h2>
+          <select name="userSelect" id="userSelect">
+            <option value="" selected="selected">Select User</option>
+          </select><br><br>
+          <select name="categorySelect" id="categorySelect">
+            <option value="" selected="selected">Select Category</option>
+            <option value="Meals">Meals</option>
+            <option value="Travel">Travel</option>
+            <option value="Software">Software</option>
+          </select><br><br>
+          <span class="query">
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" placeholder="$0"><br><br>
+          </span>
+          <span class="query">
+            <label for="desc">Description:</label>
+            <input type="text" id="desc" name="desc" placeholder="Description"><br><br>
+          </span>
+          <button id="submit" type="button" onclick="newExpense()">Add Expense</button>
+          <h2>Expenses</h2>
+          <table id="usertable">
+              <thead>
+              <tr>
+                <th>Expense ID</th>
+                <th>User ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody id="expenseBody">
+            </tbody>
+          </table>
+        </div>
+        <div id="costpage" style="display: none">
+          <h2>Total Cost by Category</h2>
+          <h3 id="mealstotal">Meals: $0</h3>
+          <h3 id="traveltotal">Travel: $0</h3>
+          <h3 id="softwaretotal">Software: $0</h3>
+        </div>
+        <button id="test" onclick="test()">Test</button>
+    </main>
+    <footer>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>
